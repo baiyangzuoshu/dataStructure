@@ -50,3 +50,5 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+/SeqList/Debug
+/SeqList/SeqList.VC.db
