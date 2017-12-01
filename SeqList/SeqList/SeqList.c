@@ -1,5 +1,5 @@
 #include "SeqList.h"
-#include<stdlib.h>
+#include"string.h"
 
 typedef struct _tag_seqlist
 {
@@ -10,35 +10,118 @@ typedef struct _tag_seqlist
 
 SeqList*	createSeqList(int capacity)
 {
-	return NULL;
+	if (capacity<1)
+	{
+		printf("createSeqList fail capacity<1");
+		return NULL;
+	}
+
+	TSeqList* list = (TSeqList*)malloc(sizeof(TSeqList));
+	if (NULL==list)
+	{
+		list = (TSeqList*)malloc(sizeof(TSeqList));
+	}
+	memset(list, 0, sizeof(TSeqList));
+
+	list->capacity = capacity;
+	list->length = 0;
+	list->node = (unsigned int*)malloc(sizeof(unsigned int*)*capacity);
+	memset(list->node, 0, sizeof(unsigned int)*capacity);
+
+	return list;
 }
 
 int			destroySeqList(SeqList	*list)
 {
+	TSeqList* tList = (TSeqList*)list;
+
+	if (NULL== tList)
+	{
+		printf("destroySeqlist fail");
+		return -1;
+	}
+
+	if (NULL!= tList->node)
+	{
+		free(tList->node);
+		tList->node = NULL;
+	}
+	free(tList);
+	tList = NULL;
 	return 0;
 }
 
 int			getSeqListLength(SeqList	*list)
 {
-	return 0;
+	TSeqList* tList = (TSeqList*)list;
+
+	if (NULL == tList)
+	{
+		printf("destroySeqlist fail");
+		return -1;
+	}
+	return tList->length;
 }
 
 int			getSeqListCapacity(SeqList	*list)
 {
-	return 0;
+	TSeqList* tList = (TSeqList*)list;
+
+	if (NULL == tList)
+	{
+		printf("destroySeqlist fail");
+		return -1;
+	}
+	return tList->capacity;
 }
 
 SeqListNode*	insertToSeqList(SeqList	*list, SeqListNode	*node, int pos)
 {
-	return NULL;
+	TSeqList* tList = (TSeqList*)list;
+
+	if (NULL == tList||pos>tList->capacity)
+	{
+		printf("insertToSeqList fail");
+		return NULL;
+	}
+	//a[i+1]=a[i]
+	for (int i=pos;i<tList->length;i++)
+	{
+		tList->node[i + 1] = tList->node[i];
+	}
+	tList->node[pos] = (unsigned int*)node;
+	tList->length++;
+	return node;
 }
 
 SeqListNode*    getNodeBySeqList(SeqList	*list, int pos)
 {
-	return NULL;
+	TSeqList* tList = (TSeqList*)list;
+
+	if (NULL == tList||tList->length<pos)
+	{
+		printf("getNodeBySeqList fail");
+		return NULL;
+	}
+	SeqListNode* node = (SeqListNode*)tList->node[pos];
+	return node;
 }
 
-SeqListNode*	deleteBySeqList(SeqList	*list, SeqListNode	*node, int pos)
+SeqListNode*	deleteBySeqList(SeqList	*list,  int pos)
 {
-	return NULL;
+	TSeqList* tList = (TSeqList*)list;
+
+	if (NULL == tList||pos>tList->length)
+	{
+		printf("deleteBySeqList fail");
+		return NULL;
+	}
+	SeqListNode* tmp = (SeqListNode*)tList->node[pos];
+	//a[i]=a[i+1]
+	for (int i=pos;i<tList->length;i++)
+	{
+		tList->node[i] = tList->node[i+1];
+	}
+	tList->length--;
+	return tmp;
 }

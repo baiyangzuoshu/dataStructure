@@ -10,5 +10,5 @@ int			getSeqListLength(SeqList	*list);
 int			getSeqListCapacity(SeqList	*list);
 SeqListNode*	insertToSeqList(SeqList	*list,SeqListNode	*node,int pos);
 SeqListNode*    getNodeBySeqList(SeqList	*list,int pos);
-SeqListNode*	deleteBySeqList(SeqList	*list,SeqListNode	*node,int pos);
+SeqListNode*	deleteBySeqList(SeqList	*list,int pos);
 #endif//MYSEQLIST_H
