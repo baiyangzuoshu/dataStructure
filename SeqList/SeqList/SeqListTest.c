@@ -36,7 +36,7 @@ int main()
 		printf("node->age:%d\n", node->age);
 	}
 
-	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t2, 0);
+	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t2, 2);
 	if (NULL == node)
 	{
 		printf("insert fail\n");
@@ -46,7 +46,7 @@ int main()
 		printf("node->age:%d\n", node->age);
 	}
 
-	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t3, 0);
+	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t3, 8);
 	if (NULL == node)
 	{
 		printf("insert fail\n");
@@ -56,7 +56,7 @@ int main()
 		printf("node->age:%d\n", node->age);
 	}
 
-	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t4, 3);
+	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t4, 0);
 	if (NULL == node)
 	{
 		printf("insert fail\n");
@@ -76,7 +76,7 @@ int main()
 		printf("node->age:%d\n", node->age);
 	}
 
-	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t6, 2);
+	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t6, 0);
 	if (NULL == node)
 	{
 		printf("insert fail\n");

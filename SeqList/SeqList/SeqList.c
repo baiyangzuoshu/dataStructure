@@ -91,9 +91,9 @@ SeqListNode*	insertToSeqList(SeqList	*list, SeqListNode	*node, int pos)
 		pos = 0;
 
 	//a[i+1]=a[i]
-	for (int i= tList->length-1;i>pos;i--)
+	for (int i= tList->length;i>pos;i--)
 	{
-		tList->node[i+1] = tList->node[i];
+		tList->node[i] = tList->node[i-1];
 	}
 	tList->node[pos] = (unsigned int*)node;
 	tList->length++;
