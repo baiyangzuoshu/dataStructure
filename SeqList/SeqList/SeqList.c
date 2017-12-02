@@ -84,14 +84,20 @@ SeqListNode*	insertToSeqList(SeqList	*list, SeqListNode	*node, int pos)
 		printf("insertToSeqList fail");
 		return NULL;
 	}
+	//ÈÝ´í´¦Àí
+	if (pos > tList->length)
+		pos = tList->length;
+	else if (pos < 1)
+		pos = 0;
+
 	//a[i+1]=a[i]
-	for (int i=pos;i<tList->length;i++)
+	for (int i= tList->length-1;i>pos;i--)
 	{
-		tList->node[i + 1] = tList->node[i];
+		tList->node[i+1] = tList->node[i];
 	}
 	tList->node[pos] = (unsigned int*)node;
 	tList->length++;
-	return node;
+	return (SeqListNode	*)tList->node[pos];
 }
 
 SeqListNode*    getNodeBySeqList(SeqList	*list, int pos)

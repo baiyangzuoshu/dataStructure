@@ -29,87 +29,87 @@ int main()
 	Teacher*	node=(Teacher*)insertToSeqList(list, (SeqListNode*)&t1, 0);
 	if (NULL==node)
 	{
-		printf("insert fail");
+		printf("insert fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
 	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t2, 0);
 	if (NULL == node)
 	{
-		printf("insert fail");
+		printf("insert fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
 	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t3, 0);
 	if (NULL == node)
 	{
-		printf("insert fail");
+		printf("insert fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
-	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t4, 0);
+	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t4, 3);
 	if (NULL == node)
 	{
-		printf("insert fail");
+		printf("insert fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
 	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t5, 0);
 	if (NULL == node)
 	{
-		printf("insert fail");
+		printf("insert fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
-	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t6, 0);
+	node = (Teacher*)insertToSeqList(list, (SeqListNode*)&t6, 2);
 	if (NULL == node)
 	{
-		printf("insert fail");
+		printf("insert fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
-	node=(Teacher*)getNodeBySeqList(list, 0);
+	node=(Teacher*)getNodeBySeqList(list, 2);
 	if (NULL == node)
 	{
-		printf("getNodeBySeqList fail");
+		printf("getNodeBySeqList fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
-	node = (Teacher*)deleteBySeqList(list,  0);
+	//node = (Teacher*)deleteBySeqList(list,  1);
 	if (NULL == node)
 	{
-		printf("getNodeBySeqList fail");
+		printf("getNodeBySeqList fail\n");
 	}
 	else
 	{
-		printf("node->age:%d", node->age);
+		printf("node->age:%d\n", node->age);
 	}
 
 	ret = getSeqListLength(list);
 	if (ret < 1)
 	{
-		printf("list length < 1");
+		printf("list length < 1\n");
 		return;
 	}
 
@@ -118,11 +118,11 @@ int main()
 		node = (Teacher*)getNodeBySeqList(list, i);
 		if (NULL == node)
 		{
-			printf("getNodeBySeqList fail");
+			printf("getNodeBySeqList fail\n");
 		}
 		else
 		{
-			printf("node->age:%d",node->age);
+			printf("node->age:%d\n",node->age);
 		}
 	}
 	ret= destroySeqList(list);
