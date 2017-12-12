@@ -9,9 +9,9 @@ typedef struct _tagLinkList
 
 LinkList*	createLinkList()
 {
-	TLinkList	*list_ = new TLinkList;
-
-	return NULL;
+	TLinkList	*list_ = (TLinkList*)malloc(sizeof(TLinkList));
+	memset(list_, 0, sizeof(TLinkList));
+	return list_;
 }
 
 int			destoryLinkList(LinkList* list_)
