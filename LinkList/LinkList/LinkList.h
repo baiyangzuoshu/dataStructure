@@ -4,6 +4,8 @@
 typedef struct _tag_Linklist_node
 {
 	struct _tag_Linklist_node*	next_;
+	struct _tag_Linklist_node*	last_;
+	
 }LinkListNode;
 
 typedef	void	LinkList;

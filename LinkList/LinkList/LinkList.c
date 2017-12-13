@@ -5,7 +5,6 @@ typedef struct _tagLinkList
 {
 	int				len_;
 	LinkListNode	*head;
-	LinkListNode	*current;
 }TLinkList;
 
 LinkList*	createLinkList()
@@ -47,7 +46,6 @@ LinkListNode*	insertToLinkList(LinkList*	list_, LinkListNode*	node_, int pos)
 		return NULL;
 	}
 
-	
 	TLinkList* tList = (TLinkList*)list_;
 	//容错处理
 	if (pos > tList->len_)
@@ -59,9 +57,8 @@ LinkListNode*	insertToLinkList(LinkList*	list_, LinkListNode*	node_, int pos)
 	{
 		//说明链表是空的
 		tList->head = node_;
-		tList->current = node_;
 		tList->len_++;
-		return tList->current;
+		return node_;
 	}
 		
 	LinkListNode* tLast = NULL;
@@ -71,10 +68,10 @@ LinkListNode*	insertToLinkList(LinkList*	list_, LinkListNode*	node_, int pos)
 	if (0 == pos)
 	{
 		tList->head = node_;
+		node_->last_ = tList->head;
 		node_->next_ = tCur;
-		tList->current = node_;
 		tList->len_++;
-		return tList->current;
+		return node_;
 	}
 	//
 	for (int i = 0; i <= tList->len_;i++)
@@ -88,9 +85,8 @@ LinkListNode*	insertToLinkList(LinkList*	list_, LinkListNode*	node_, int pos)
 		tLast = tCur;//上一个节点
 		tCur = tCur->next_;//当前节点
 	}
-	tList->current = node_;
 	tList->len_++;
-	return tList->current;
+	return node_;
 }
 
 LinkListNode*	getNodeByLinkList(LinkList*	list_, int pos)
