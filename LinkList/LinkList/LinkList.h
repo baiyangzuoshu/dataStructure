@@ -3,7 +3,7 @@
 #define LINKLIST_H
 typedef struct _tag_Linklist_node
 {
-	struct _tag_Linklist_node*	node;
+	struct _tag_Linklist_node*	next_;
 }LinkListNode;
 
 typedef	void	LinkList;
@@ -15,5 +15,4 @@ LinkListNode*	insertToLinkList(LinkList*	list_, LinkListNode*	node_, int pos);
 LinkListNode*	getNodeByLinkList(LinkList*	list_, int pos);
 LinkListNode*	deleteNodeByPos(LinkList*	list_, int pos);
 LinkListNode*	deleteNodeByNode(LinkList*	list_, LinkListNode*	node_);
-LinkListNode*	currentPosByLinkList(LinkList*	list_);
 #endif//LINKLIST_H

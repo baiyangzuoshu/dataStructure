@@ -2,9 +2,10 @@
 #include<stdlib.h>
 #include"string.h"
 #include "LinkList.h"
+
 typedef	struct _tag_Teacher
 {
-	LinkListNode	node;
+	LinkListNode	node;//如果它是一指針,怎么分配内存？
 	int		age;
 	char	name[64];
 }Teacher;
@@ -13,15 +14,20 @@ int main()
 {
 	int ret = 0;
 	LinkList*	list_=createLinkList();
-	
-	int	listLen=getLinkListLength(list_);
-	printf("list len:%d", listLen);
+	Teacher *tArray[5];
+	Teacher t1,t2,t3,t4,t5;
+	tArray[0] = &t1;
+	tArray[1] = &t2;
+	tArray[2] = &t3;
+	tArray[3] = &t4;
+	tArray[4] = &t5;
 	for (int i = 0; i < 5; i++)
 	{
-		Teacher t;
-		t.age = 100 + i;
-
-		LinkListNode*	node_ = insertToLinkList(list_, (LinkListNode*)(&t), 0);
+		
+		memset(tArray[i], 0, sizeof(Teacher));
+		tArray[i]->age = 100 + i;
+		printf("&t:%d,&node:%d", tArray[i], &(tArray[i]->node));
+		LinkListNode*	node_ = insertToLinkList(list_, (LinkListNode*)(tArray[i]), i);
 		if (NULL == node_)
 		{
 			printf("insertToLinkList fail\n");
@@ -29,33 +35,28 @@ int main()
 		else
 		{
 			Teacher*	object_ = (Teacher*)node_;
-			printf("insertToLinkList Teacher:age %d", object_->age);
+			printf("insertToLinkList Teacher:age %d\n", object_->age);
 		}
 	}
 	
-	LinkListNode*	node_=getNodeByLinkList(list_, 0);
-	if (NULL == node_)
+	int	listLen = getLinkListLength(list_);
+	printf("list len:%d\n", listLen);
+	for (int i=0;i<getLinkListLength(list_);i++)
 	{
-		printf("getNodeByLinkList fail\n");
-	}
-	else
-	{
-		Teacher*	object_ = (Teacher*)node_;
-		printf("getNodeByLinkList Teacher:age %d", object_->age);
-	}
-
-	node_=deleteNodeByPos(list_, 0);
-	if (NULL == node_)
-	{
-		printf("deleteNodeByPos fail\n");
-	}
-	else
-	{
-		Teacher*	object_ = (Teacher*)node_;
-		printf("deleteNodeByPos Teacher:age %d", object_->age);
+		LinkListNode*	node_ = getNodeByLinkList(list_, i);
+		if (NULL == node_)
+		{
+			printf("getNodeByLinkList fail\n");
+		}
+		else
+		{
+			Teacher*	object_ = (Teacher*)node_;
+			printf("getNodeByLinkList Teacher:age %d\n", object_->age);
+		}
 	}
 	
-	node_=currentPosByLinkList(list_);
+
+	LinkListNode*	node_=deleteNodeByPos(list_, 3);
 	if (NULL == node_)
 	{
 		printf("deleteNodeByPos fail\n");
@@ -63,7 +64,22 @@ int main()
 	else
 	{
 		Teacher*	object_ = (Teacher*)node_;
-		printf("deleteNodeByPos Teacher:age %d", object_->age);
+		printf("deleteNodeByPos Teacher:age %d\n", object_->age);
+	}
+
+	node_ = deleteNodeByNode(list_, (LinkListNode*)tArray[1]);
+	for (int i = 0; i < getLinkListLength(list_); i++)
+	{
+		LinkListNode*	node_ = getNodeByLinkList(list_, i);
+		if (NULL == node_)
+		{
+			printf("getNodeByLinkList fail\n");
+		}
+		else
+		{
+			Teacher*	object_ = (Teacher*)node_;
+			printf("getNodeByLinkList Teacher:age %d\n", object_->age);
+		}
 	}
 
 	ret = destoryLinkList(list_);
