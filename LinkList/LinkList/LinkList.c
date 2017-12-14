@@ -57,19 +57,24 @@ LinkListNode*	insertToLinkList(LinkList*	list_, LinkListNode*	node_, int pos)
 	{
 		//说明链表是空的
 		tList->head = node_;
+
+		node_->last_ = tList->head;
+		node_->next_ = NULL;
+		
 		tList->len_++;
 		return node_;
 	}
 		
-	LinkListNode* tLast = NULL;
 	LinkListNode* tCur = tList->head;//指向第一个节点
-
 	//头插法
 	if (0 == pos)
 	{
 		tList->head = node_;
+
 		node_->last_ = tList->head;
 		node_->next_ = tCur;
+		
+		tCur->last_ = node_;
 		tList->len_++;
 		return node_;
 	}
@@ -78,12 +83,31 @@ LinkListNode*	insertToLinkList(LinkList*	list_, LinkListNode*	node_, int pos)
 	{
 		if (i == pos)
 		{
-			tLast->next_ = node_;
+			tCur->last_->next_ = node_;
+
+			node_->last_ = tCur->last_;
 			node_->next_ = tCur;
+
+			tCur->last_ = node_;
 			break;
 		}
-		tLast = tCur;//上一个节点
-		tCur = tCur->next_;//当前节点
+		
+		
+		if (NULL== tCur->next_)
+		{
+			//尾部插入
+			tCur->next_ = node_;
+
+			node_->last_ = tCur;
+			node_->next_ = NULL;
+
+			tCur->last_ = node_;
+			break;
+		}
+		else
+		{
+			tCur = tCur->next_;//当前节点
+		}
 	}
 	tList->len_++;
 	return node_;
@@ -122,17 +146,30 @@ LinkListNode*	deleteNodeByPos(LinkList*	list_, int pos)
 	}
 	TLinkList* tList = (TLinkList*)list_;
 	LinkListNode* cur_ = tList->head;
-	LinkListNode* last_ = tList->head;
+	if (pos>=tList->len_)
+	{
+		printf("deleteNodeByPos fail!\n");
+		return -1;
+	}
+
 	for (int i = 0; i < tList->len_; i++)
 	{
 		if (i == pos)
 		{
-			last_->next_ = cur_->next_;
+			cur_->next_->last_ = cur_->last_;
+			cur_->last_->next_ = cur_->next_;
 			tList->len_--;
 			return cur_;
 		}
-		last_ = cur_;
 		cur_ = cur_->next_;
+		if (NULL == cur_->next_)
+		{
+			//尾部删除
+			cur_->last_->next_ = NULL;
+			tList->len_--;
+			return cur_;
+		}
+		
 	}
 	return NULL;
 }
@@ -148,21 +185,29 @@ LinkListNode*	deleteNodeByNode(LinkList*	list_, LinkListNode*	node_)
 	if (tList->head==node_)
 	{
 		tList->head = tList->head->next_;
+		tList->len_--;
 		return node_;
 	}
 
 	LinkListNode* cur_ = tList->head;
-	LinkListNode* last_ = tList->head;
 	while (cur_)
 	{
 		if (node_ == cur_)
 		{
-			last_->next_ = cur_->next_;
+			cur_->next_->last_ = cur_->last_;
+			cur_->last_->next_ = cur_->next_;
 			tList->len_--;
 			return node_;
 		}
-		last_ = cur_;
-		cur_ = cur_->next_;
+
+		cur_ = cur_->next_;//当前节点
+		if (NULL==cur_->next_)
+		{
+			//尾部删除
+			cur_->last_->next_ = NULL;
+			tList->len_--;
+			return cur_;
+		}
 	}
 	return NULL;
 }

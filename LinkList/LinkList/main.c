@@ -56,7 +56,7 @@ int main()
 	}
 	
 
-	LinkListNode*	node_=deleteNodeByPos(list_, 3);
+	LinkListNode*	node_=deleteNodeByPos(list_, 4);
 	if (NULL == node_)
 	{
 		printf("deleteNodeByPos fail\n");
@@ -83,7 +83,7 @@ int main()
 	}
 
 	ret = destoryLinkList(list_);
-	if (ret==0)
+	if (ret!=0)
 	{
 		printf("destoryLinkList fail\n");
 	}
