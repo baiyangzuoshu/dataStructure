@@ -56,3 +56,6 @@ dkms.conf
 /LinkList/Debug
 /LinkList/*.db
 /SeqList/.vs/SeqList
+/SingleLinkList/Debug
+/SingleLinkList/*.db
+/SingleLinkList/SingleLinkList/Debug
