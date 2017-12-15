@@ -1,0 +1,10 @@
+﻿  LinkList.c
+e:\code\datastructure\linklist\linklist\linklist.c(12): warning C4013: “malloc”未定义；假设外部返回 int
+e:\code\datastructure\linklist\linklist\linklist.c(13): warning C4013: “memset”未定义；假设外部返回 int
+e:\code\datastructure\linklist\linklist\linklist.c(25): warning C4013: “free”未定义；假设外部返回 int
+e:\code\datastructure\linklist\linklist\linklist.c(121): warning C4047: “return”:“LinkListNode *”与“int”的间接级别不同
+e:\code\datastructure\linklist\linklist\linklist.c(145): warning C4047: “return”:“LinkListNode *”与“int”的间接级别不同
+e:\code\datastructure\linklist\linklist\linklist.c(152): warning C4047: “return”:“LinkListNode *”与“int”的间接级别不同
+e:\code\datastructure\linklist\linklist\linklist.c(182): warning C4047: “return”:“LinkListNode *”与“int”的间接级别不同
+  LinkList.vcxproj -> E:\CODE\dataStructure\LinkList\Debug\LinkList.exe
+  LinkList.vcxproj -> E:\CODE\dataStructure\LinkList\Debug\LinkList.pdb (Full PDB)
