@@ -60,3 +60,7 @@ dkms.conf
 /SingleLinkList/*.db
 /SingleLinkList/SingleLinkList/Debug
 /SingleLinkList/.vs/SingleLinkList/v14
+/CircleLinkList/*.opendb
+/CircleLinkList/*.db
+/CircleLinkList/.vs/CircleLinkList/v14/*.suo
+/CircleLinkList/CircleLinkList/Debug/*.log
