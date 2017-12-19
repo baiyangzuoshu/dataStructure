@@ -64,3 +64,6 @@ dkms.conf
 /CircleLinkList/*.db
 /CircleLinkList/.vs/CircleLinkList/v14/*.suo
 /CircleLinkList/CircleLinkList/Debug/*.log
+/DoubleLinkList/DoubleLinkList/Debug
+/DoubleLinkList/Debug
+/DoubleLinkList/*.db
