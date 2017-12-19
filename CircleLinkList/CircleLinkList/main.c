@@ -5,6 +5,7 @@
 
 int main()
 {
+	
 	printf("hellowrold\n");
 	
 	system("pause");
