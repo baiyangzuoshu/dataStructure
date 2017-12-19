@@ -63,7 +63,7 @@ int main()
 		printf("deleteNodeByLinkListPos fail\n");
 	}
 
-	node_=deleteNodeByLinkListNode(list_, (SingleLinkListNode*)tArray[1]);
+	node_=deleteNodeByLinkListNode(list_, (SingleLinkListNode*)tArray[2]);
 	if (NULL != node_)
 	{
 		Teacher*	teacher_ = (Teacher*)node_;

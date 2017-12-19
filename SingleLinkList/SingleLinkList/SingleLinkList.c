@@ -58,30 +58,22 @@ int				clearLinkList(SingleLinkList* list_)
 SingleLinkListNode* deleteNodeByLinkListPos(SingleLinkList* list_, int pos)
 {
 	TSingleLinkList	*tList = (TSingleLinkList*)list_;
-	if (NULL == tList||pos>=tList->length)
+	if (NULL == tList||pos>=tList->length||pos<0)
 	{
 		printf("deleteNodeByLinkListPos fail:list_!=NULL");
 		return -1;
 	}
 	
 	SingleLinkListNode	*current_ = NULL;
-	SingleLinkListNode	*last_ = NULL;
 	current_ = &(tList->head);
-	last_ = current_;
-	current_ = current_->next;
-
-	for (int i = 0; i <=pos&&current_; i++)
+	for (int i=0;i<pos&&current_->next;i++)
 	{
-		if (i==pos)
-		{
-			last_->next = current_->next;
-			tList->length--;
-			return current_;
-		}
-		last_ = current_;
 		current_ = current_->next;
 	}
-	return NULL;
+	tList->length--;
+	SingleLinkListNode	*delete_ = current_->next;
+	current_->next = delete_->next;
+	return delete_;
 }
 
 SingleLinkListNode* insertNodeByLinkList(SingleLinkList* list_, SingleLinkListNode* node_, int pos)
@@ -93,9 +85,12 @@ SingleLinkListNode* insertNodeByLinkList(SingleLinkList* list_, SingleLinkListNo
 	}
 	SingleLinkListNode	*current = NULL;
 	TSingleLinkList		*tList = (TSingleLinkList*)list_;
+	if (pos<0||pos>=tList->length)
+		pos = 0;
+
 	current = &(tList->head);
 
-	for (int i=0;i<pos&&current;i++)
+	for (int i=0;i<pos&&current->next;i++)
 	{
 		current = current->next;
 	}
@@ -117,7 +112,7 @@ SingleLinkListNode* getNodeByLinkListPos(SingleLinkList* list_, int pos)
 	
 	SingleLinkListNode	*current = NULL;
 	current = &(tList->head);
-	for (int i=0;i<=pos&&current;i++)
+	for (int i=0;i<=pos&&current->next;i++)
 	{
 		current = current->next;
 	}
