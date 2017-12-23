@@ -67,3 +67,4 @@ dkms.conf
 /DoubleLinkList/DoubleLinkList/Debug
 /DoubleLinkList/Debug
 /DoubleLinkList/*.db
+/DoubleLinkList/.vs/DoubleLinkList/v14
