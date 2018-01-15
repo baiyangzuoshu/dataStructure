@@ -68,3 +68,5 @@ dkms.conf
 /DoubleLinkList/Debug
 /DoubleLinkList/*.db
 /DoubleLinkList/.vs/DoubleLinkList/v14
+/排序/ConsoleApplication1/Debug
+/排序/ConsoleApplication1/*.db
