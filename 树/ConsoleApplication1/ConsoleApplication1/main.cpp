@@ -1,13 +1,18 @@
 #include<iostream>
 using namespace std;
 
-int  main()
+struct trueNode
+{
+
+};
+int  main01()
 {
 	cout<<"hellowrold"<<endl;
 	
 	system("pause");
 	return 0;
 }
+
 #if 0
 树的基本概念
 (1)特点：非线性结构，一个直接前驱，但可能有多个直接后继（1:n）
