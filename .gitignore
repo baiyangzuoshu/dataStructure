@@ -73,3 +73,5 @@ dkms.conf
 /树/ConsoleApplication1/Debug
 /树/ConsoleApplication1/*.db
 /树/ConsoleApplication1/ConsoleApplication1/Debug
+/排序/ConsoleApplication1/.vs/ConsoleApplication1/v14/*.suo
+/树/ConsoleApplication1/.vs/ConsoleApplication1/v14/*.suo
