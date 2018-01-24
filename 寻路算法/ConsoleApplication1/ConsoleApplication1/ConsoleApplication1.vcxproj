@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="A_Star.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="最短路径.cpp" />
   </ItemGroup>

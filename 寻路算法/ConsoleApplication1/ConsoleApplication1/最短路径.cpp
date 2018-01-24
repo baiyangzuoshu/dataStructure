@@ -52,7 +52,7 @@ void	ShortestPath_Dijkstra(MGraph G, int V0, Patharc *P, ShortPathTable *D)
 	}
 }
 
-int  main()
+int  main03()
 {
 	MGraph _g;
 	_g.numVertexes = 9;
