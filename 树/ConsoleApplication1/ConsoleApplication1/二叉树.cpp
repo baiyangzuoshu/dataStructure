@@ -37,7 +37,31 @@ void	PostOrderTraverse(BiTree T)
 	cout << T->data.c_str();
 }
 
-int  main()
+void	printSpace(int _index)
+{
+	for (int i = 0; i < _index; i++)
+	{
+		cout << " ";
+	}
+}
+
+void	printTree(BiTree T,string& _result)
+{
+	if (nullptr == T)
+	{
+		_result.append("▽");
+		return;
+	}
+	
+	_result.append(T->data);
+	
+	printTree(T->lchild,_result);
+	
+	printTree(T->rchild,_result);
+	
+}
+
+int  main888()
 {
 	BiTNode tA, tB, tC, tD, tE, tF, tG, tH, tI;
 	tA.data = "A"; tA.lchild = &tB; tA.rchild = &tC;
@@ -50,12 +74,19 @@ int  main()
 	tH.data = "H"; tH.lchild = nullptr; tH.rchild = nullptr;
 	tI.data = "I"; tI.lchild = nullptr; tI.rchild = nullptr;
 
-	cout << "前置遍历" << endl;
+	string _result("");
+	printTree(&tA, _result);
+	cout << endl;
+	cout << "result:" << _result.c_str() << endl;
+	cout << "前置遍历:";
 	PreOrderTraverse(&tA);
-	cout << "中荀遍历" << endl;
+	cout << endl;
+	cout << "中荀遍历:";
 	InOrderTraverse(&tA);
-	cout << "后序遍历" << endl;
+	cout << endl;
+	cout << "后序遍历:";
 	PostOrderTraverse(&tA);
+	cout << endl;
 	system("pause");
 	return 0;
 }

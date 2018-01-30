@@ -284,7 +284,7 @@ const int map[Height][Width] = {
 	{ 0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0 }
 };
 
-const char Symbol[5][3] = { "□", "▓", "▽", "☆", "◎" };
+const char Symbol[5][3] = { "□", "▓", "▽", "★", "○" };
 
 void printMap()
 {
@@ -419,6 +419,7 @@ int main()
 	printMap();
 
 	//
+	printf("请输入起始点x、y,终点x、y:\n");
 	while (scanf("%d %d %d %d", &srcX, &srcY, &dstX, &dstY) != EOF)
 	{
 		if (within(srcX, srcY) && within(dstX, dstY))
