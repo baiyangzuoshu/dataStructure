@@ -78,7 +78,7 @@ void	sortShell(int	*_array, int _len)
 		gap = gap / 3 + 1;
 
 		for (int i = gap; i < _len; i += gap)
-		{
+		{ 
 			int k = i;
 			int _temp = _array[k];
 
